@@ -1,6 +1,6 @@
 '''
 Merge Sort
-O(n^2)
+O(n log n)
 
 split each element into partitions of size 1
 recursively merge adjacent partitions
@@ -34,7 +34,7 @@ def merge(array: list, left: int, mid: int, right: int):
             array[k] = r[j]
             j += 1
 
-def merge_sort(array: list, left: int, right: int) -> list:
+def merge_sort(array: list, left: int, right: int):
     if (left < right):
         mid = (left + right) // 2
         merge_sort(array, left, mid)

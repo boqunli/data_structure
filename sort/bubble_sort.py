@@ -15,7 +15,7 @@ from json.tool import main
 import random
 
 
-def bubble_sort(array: list) -> list:
+def bubble_sort(array: list):
     n = len(array)
     for i in range(0, n):
         for j in range(0, n - i - 1):

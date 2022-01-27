@@ -15,7 +15,7 @@ from json.tool import main
 import random
 
 
-def insertion_sort(array: list) -> list:
+def insertion_sort(array: list):
     n = len(array)
     for i in range(1, n):
         tmp = array[i]

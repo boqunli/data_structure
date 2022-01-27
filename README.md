@@ -4,9 +4,11 @@
 
 + bubble_sort
 + selection_sort
-+
-+
-+
++ insertion_sort
++ merge_sort
++ quick_sort
++ counting_sort
++ radix_sort
 
 ### Linear data structure
 + linked_list

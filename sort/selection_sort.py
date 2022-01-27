@@ -14,7 +14,7 @@ from json.tool import main
 import random
 
 
-def selection_sort(array: list) -> list:
+def selection_sort(array: list):
     n = len(array)
     for i in range(0, n):
         tmp = i
