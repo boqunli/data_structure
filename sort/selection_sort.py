@@ -1,5 +1,5 @@
 '''
-selection Sort
+Selection Sort
 O(n^2)
 
 repeat (numOfElements - 1) times
@@ -15,8 +15,13 @@ import random
 
 
 def selection_sort(array: list) -> list:
-    
-    pass
+    n = len(array)
+    for i in range(0, n):
+        tmp = i
+        for j in range(i, n): 
+            if array[j] < array[tmp]:
+                tmp = j
+        array[i], array[tmp] = array[tmp], array[i]
     # return array
 
 
