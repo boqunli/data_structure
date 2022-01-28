@@ -1,0 +1,24 @@
+下载git
+https://git-scm.com/downloads
+
+git clone https://github.com/boqunli/data_structure.git
+
+状态
+git status
+
+新建分支
+git branch xxx
+
+切换分支
+git checkout xxx
+
+记录更改
+git add xxx
+
+提交本地
+git commit -m "xxx"
+
+提交远程
+git config --global user.name "xxx"
+git config --global user.email "xxx"
+git push
