@@ -7,10 +7,10 @@ git clone https://github.com/boqunli/data_structure.git
 git status
 
 新建分支
-git branch xxx
+git branch bbb
 
 切换分支
-git checkout xxx
+git checkout bbb
 
 记录更改
 git add xxx
@@ -21,4 +21,4 @@ git commit -m "xxx"
 提交远程
 git config --global user.name "xxx"
 git config --global user.email "xxx"
-git push
+git push --set-upstream origin bbb
