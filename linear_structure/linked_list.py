@@ -1,5 +1,16 @@
 '''
 linked_list data structure
+
+member functions
+    insert_back
+    insert_front
+    pop_back
+    pop_front
+    erase_at
+    insert_at
+    erase_key
+    insert_after
+    print_list
 '''
 
 class node:
@@ -131,6 +142,15 @@ class linked_list:
         self.first = None
         self.last = None        
     
+    def search(self, value):
+        it = self.first
+        while it:
+            if it.key == value:
+                return it
+            it = it.next
+        return None
+
+
     def reverse(self):
         pass
 
@@ -138,6 +158,12 @@ class linked_list:
         pass
 
     def insert_at(self, postion=0):
+        pass
+
+    def insert_after(self, key):
+        pass
+
+    def erase_key(self, key):
         pass
 
     def erase_at(self, postition=0):
