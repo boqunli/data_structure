@@ -170,7 +170,7 @@ class binary_search_tree:
         elif z.right == None:
             self.transplant(z, z.left)
         else:
-            y = self.tree_minimum(z)
+            y = self.tree_minimum(z.right)
             if y.parent != z:
                 self.transplant(y, y.right)
                 y.right = z.right
