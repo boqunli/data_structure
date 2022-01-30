@@ -100,24 +100,22 @@ class binary_search_tree:
                 return x
         return x
 
-    def minimum(self):
-        x = self.root
-        while x:
+    def tree_minimum(self, xx:node):
+        x = xx
+        while x.left:
             x = x.left
         return x
 
-    def maximum(self):
-        x = self.root
-        while x:
+    def tree_maximum(self, xx:node):
+        x = xx
+        while x.right:
             x = x.right
         return x
     
-    def tree_successor(self, x:node):
+    def tree_successor(self, xx:node):
+        x = xx
         if x.right:
-            it = x.right
-            while it:
-                it = it.left 
-            return it
+            return self.tree_minimum(x.right)
         y = x.parent
         while y:
             if x != y.right:
@@ -125,6 +123,18 @@ class binary_search_tree:
             x = y
             y = y.parent
         return y
+    
+    def tree_predecessor(self, xx:node):
+        x = xx
+        if x.left:
+            return self.tree_maximum(x.left)
+        y = x.parent
+        while y:
+            if x != y.left:
+                break
+            x = y
+            y = y.parent 
+        return
     
     def tree_insert(self, data):
         z = node(data)
@@ -143,6 +153,32 @@ class binary_search_tree:
             y.left = z
         else:
             y.right = z
+        
+    def transplant(self, u:node, v:node):
+        if u.parent == None:
+            self.root = v
+        elif u == u.parent.left:
+            u.parent.left = v
+        else:
+            u.parent.right = v
+        if v:
+            v.parent = u.parent
+    
+    def tree_delete(self, z:node):
+        if z.left == None:
+            self.transplant(z, z.right)
+        elif z.right == None:
+            self.transplant(z, z.left)
+        else:
+            y = self.tree_minimum(z)
+            if y.parent != z:
+                self.transplant(y, y.right)
+                y.right = z.right
+                y.right.parent = y
+            self.transplant(z, y)
+            y.left = z.left
+            y.left.parent = y
+
 
 def create_graph(G, node:node, pos={}, x=0, y=0, layer=1):
     pos[node.data] = (x, y)
@@ -168,5 +204,16 @@ def draw(node):   # 以某个节点为根画图
 
 if __name__ == '__main__':
     t = binary_search_tree()
+    t.tree_insert(4)
+    t.tree_insert(2)
+    t.tree_insert(1)
+    t.tree_insert(3)
+    t.tree_insert(6)
+    t.tree_insert(5)
+    t.tree_insert(7)
+    n = t.tree_search(4)
+    draw(n)
+    t.tree_delete(n)
+    draw(t.root)    
     
     
