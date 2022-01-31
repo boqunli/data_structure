@@ -25,8 +25,12 @@ right > root > left
 
 class binary_search_tree:
 
-    def __init__(self, root=None) -> None:
+    def __init__(self, root=None, array=[]) -> None:
         self.root = root
+        if array:
+            for i in array:
+                self.tree_insert(i)
+
 
     def height(self) -> int:
         def helper(root: node):
@@ -178,6 +182,15 @@ class binary_search_tree:
             self.transplant(z, y)
             y.left = z.left
             y.left.parent = y
+        
+    def tree_tolist(self):
+        rtn = []
+        it = self.tree_minimum(self.root)
+        while it:
+            rtn.append(it.data)
+            it = self.tree_successor(it)
+        return rtn
+    
 
 
 def create_graph(G, node:node, pos={}, x=0, y=0, layer=1):
@@ -194,12 +207,13 @@ def create_graph(G, node:node, pos={}, x=0, y=0, layer=1):
         create_graph(G, node.right, x=r_x, y=r_y, pos=pos, layer=r_layer)
     return (G, pos)
 
-def draw(node):   # 以某个节点为根画图
+def draw(node, path='./tree.png'):  
     graph = nx.DiGraph()
     graph, pos = create_graph(graph, node)
-    fig, ax = plt.subplots(figsize=(10, 6))  # 比例可以根据树的深度适当调节
+    fig, ax = plt.subplots(figsize=(10, 6)) 
     nx.draw_networkx(graph, pos, ax=ax, node_size=1000)
-    plt.savefig('./t.png')
+    plt.savefig(path)
+
 
 
 if __name__ == '__main__':
@@ -212,8 +226,10 @@ if __name__ == '__main__':
     t.tree_insert(5)
     t.tree_insert(7)
     n = t.tree_search(4)
-    draw(n)
     t.tree_delete(n)
     draw(t.root)    
+    tree2 = binary_search_tree(None, [10, 5, 3, 1, 4, 7, 6, 8, 15, 12, 11, 13, 17, 18, 16])
+    draw(tree2.root, 'tree2.png')
+    print(tree2.tree_tolist())
     
     

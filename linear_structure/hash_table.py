@@ -23,7 +23,7 @@ class Array(object):
 
 class Slot(object):
     """定义一个 hash 表 数组的槽
-    1.从未使用 HashMap.UNUSED。此槽没有被使用和冲突过，查找时只要找到 UNUSED 就不用再继续探查了
+     1.从未使用 HashMap.UNUSED。此槽没有被使用和冲突过，查找时只要找到 UNUSED 就不用再继续探查了
     2.使用过但是 remove 了，此时是 HashMap.EMPTY，该探查点后边的元素扔可能是有key
     3.槽正在使用 Slot 节点
     """
