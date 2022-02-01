@@ -28,11 +28,23 @@
 
 
 ### Graph
-
++ graph
++ BFS
++ DFS
++ EdmondsKarp
++ MinimumSpanningTree
++ Dijkstra
 
 
 ### Hash table
++ hash_table
 
+### Heap
++ binary_heap
++ Fibonacci_heap
+
+### Union-Find
++ disjoint_set
 
 
 
