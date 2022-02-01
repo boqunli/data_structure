@@ -93,8 +93,8 @@ def create_graph(G, node:node, pos={}, x=0, y=0, layer=1):
 def draw(node):   # 以某个节点为根画图
     graph = nx.DiGraph()
     graph, pos = create_graph(graph, node)
-    fig, ax = plt.subplots(figsize=(8, 10))  # 比例可以根据树的深度适当调节
-    nx.draw_networkx(graph, pos, ax=ax, node_size=300)
+    fig, ax = plt.subplots(figsize=(10, 6))  # 比例可以根据树的深度适当调节
+    nx.draw_networkx(graph, pos, ax=ax, node_size=1000)
     plt.savefig('./t.png')
 
 
@@ -106,9 +106,11 @@ if __name__ == '__main__':
     n5 = node(5)
     n6 = node(6, n4, n5)
     n7 = node(7, n3, n6)
-    t = binary_tree(n7)
+    n8 = node(8)
+    n9= node(9, n7, n8)
+    t = binary_tree(n9) 
     t.preorder(lambda x: print(x, end=' '))
     print('\nheight = %d' % t.height())
     t.levelorder(lambda x: print(x, end=' '))
     print('\nvisualized in ./t.png')
-    draw(n7)
+    draw(n9)
