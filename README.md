@@ -18,9 +18,14 @@
 + stack
 
 ### Tree
-+
-+
-+
+
++ avl_tree
++ b+tree
++ b_tree
++ binary_search_tree
++ binary_tree
++ red_black_tree
+
 
 ### Graph
 
